@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>M Fadhil Pratama | Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto Slab", serif;
+        background: #0f1117;
+        color: #e0e0e0;
+        margin: 0;
+        padding: 0;
+      }
+
+      #landing {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.6s ease;
+        cursor: pointer;
+      }
+
+      #landing h1 {
+        color: #ffffff;
+        font-size: 3rem;
+        text-align: center;
+      }
+
+      #landing.fade-out {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      #mainNav {
+        opacity: 0;
+        transition: opacity 0.8s ease 0.3s;
+      }
+
+      #mainNav.visible {
+        opacity: 1;
+      }
+
+      #mainContent {
+        opacity: 0;
+        transition: opacity 0.8s ease;
+      }
+
+      #mainContent.visible {
+        opacity: 1;
+      }
+
+      section {
+        padding: 4rem 2rem;
+        max-width: 1000px;
+        margin: auto;
+      }
+
+      .skills,
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+
+      .skill,
+      .project {
+        background: #1a1a1a;
+        padding: 1.5rem;
+        border-radius: 10px;
+        transition: transform 0.3s ease, background 0.3s ease;
+      }
+
+      .skill:hover,
+      .project:hover {
+        transform: translateY(-8px);
+        background: #2c2c2c;
+      }
+
+      footer {
+        background: #1a1a1a;
+        text-align: center;
+        padding: 2rem;
+        margin-top: 4rem;
+      }
+
+      footer a {
+        margin: 0 1rem;
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      footer a:hover {
+        color: #00bfff;
+      }
+
+      .fade-in-text {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 1.5s ease forwards;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .blinking {
+        animation-delay: 10s;
+        animation: blink 3s infinite;
+        opacity: 0.8;
+      }
+
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 0.2;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Full-screen Landing Section -->
+    <div id="landing">
+      <div class="text-center">
+        <h1 id="mainName" class="fade-in-text">MUHAMMAD FADHIL PRATAMA</h1>
+        <h3 id="typewriter" class="mt-3"></h3>
+        <small class="fs-8 blinking mt-4 d-block"
+          >klik di mana saja untuk masuk</small
+        >
+      </div>
+    </div>
+
+    <!-- Navbar (hidden at start) -->
+    <nav
+      id="mainNav"
+      class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="#">Fadhil</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <div class="navbar-nav ms-auto">
+            <a class="nav-link active" href="#">Home</a>
+            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="#">Projects</a>
+            <a class="nav-link" href="#">Contact</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content (hidden at start) -->
+    <div id="mainContent" class="pt-5 mt-5">
+      <section id="about">
+        <div class="row align-items-center">
+          <!-- Kiri: Deskripsi -->
+          <div class="col-md-6">
+            <h2 class="mb-3">Tentang Saya</h2>
+            <p class="text-start">
+              Saya adalah seorang programmer dengan latar belakang pendidikan
+              dari Universitas Diponegoro dan pengalaman kerja di Google LLC.
+              Passion saya ada pada dunia pemrograman, UI/UX, dan membangun
+              solusi teknologi yang impactful.
+            </p>
+          </div>
+
+          <!-- Kanan: Slider Foto -->
+          <div class="col-md-6">
+            <div
+              id="fotoSlider"
+              class="carousel slide carousel-fade"
+              data-bs-ride="carousel"
+              data-bs-interval="3000"
+            >
+              <div class="carousel-inner rounded shadow">
+                <div class="carousel-item active">
+                  <img
+                    src="img/kegiatan1.jpg"
+                    class="d-block w-100"
+                    alt="Kegiatan 1"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="img/kegiatan2.jpg"
+                    class="d-block w-100"
+                    alt="Kegiatan 2"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="img/kegiatan3.jpg"
+                    class="d-block w-100"
+                    alt="Kegiatan 3"
+                  />
+                </div>
+              </div>
+
+              <!-- Opsional: panah navigasi -->
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#fotoSlider"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#fotoSlider"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2 class="text-center mb-4">Keahlian</h2>
+        <div class="skills">
+          <div class="skill">C++ & C# Development</div>
+          <div class="skill">Web Development (HTML, CSS, JavaScript)</div>
+          <div class="skill">UI/UX Design</div>
+          <div class="skill">Database Management</div>
+          <div class="skill">API Integration</div>
+          <div class="skill">Version Control (Git)</div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2 class="text-center mb-4">Proyek</h2>
+        <div class="projects">
+          <div class="project">
+            <h3>Sistem Informasi Akademik</h3>
+            <p>
+              Aplikasi berbasis web untuk manajemen data akademik mahasiswa.
+            </p>
+          </div>
+          <div class="project">
+            <h3>Website Portofolio</h3>
+            <p>
+              Website pribadi yang menampilkan karya dan pengalaman saya di
+              bidang teknologi.
+            </p>
+          </div>
+          <div class="project">
+            <h3>Aplikasi Todo List</h3>
+            <p>
+              Aplikasi produktivitas menggunakan JavaScript dengan UI minimalis.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>Terhubung dengan saya:</p>
+        <a href="https://instagram.com/yourusername" target="_blank"
+          >Instagram</a
+        >
+        <a href="https://linkedin.com/in/yourusername" target="_blank"
+          >LinkedIn</a
+        >
+        <a href="https://tiktok.com/@yourusername" target="_blank">TikTok</a>
+        <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+      </footer>
+    </div>
+
+    <!-- Script -->
+    <script>
+      const landing = document.getElementById("landing");
+      const nav = document.getElementById("mainNav");
+      const content = document.getElementById("mainContent");
+
+      landing.addEventListener("click", () => {
+        landing.classList.add("fade-out");
+        setTimeout(() => {
+          landing.style.display = "none";
+          nav.classList.add("visible");
+          content.classList.add("visible");
+        }, 600);
+      });
+
+      const texts = ["Programmer", "Software Engineer", "Tech Enthusiast"];
+      let count = 0;
+      let index = 0;
+      let isDeleting = false;
+      let currentText = "";
+      let letter = "";
+
+      function type() {
+        currentText = texts[count];
+
+        if (isDeleting) {
+          // Kurangi huruf satu per satu
+          letter = currentText.slice(0, --index);
+        } else {
+          // Tambah huruf satu per satu
+          letter = currentText.slice(0, ++index);
+        }
+
+        document.getElementById("typewriter").textContent = letter;
+
+        let typingSpeed = isDeleting ? 60 : 100;
+
+        if (!isDeleting && letter.length === currentText.length) {
+          // Setelah selesai mengetik, tunggu 1 detik sebelum menghapus
+          setTimeout(() => {
+            isDeleting = true;
+            type();
+          }, 500);
+          return;
+        }
+
+        if (isDeleting && letter.length === 0) {
+          // Setelah selesai menghapus, lanjut ke teks berikutnya
+          isDeleting = false;
+          count = (count + 1) % texts.length;
+        }
+
+        setTimeout(type, typingSpeed);
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        setTimeout(type, 1000); // delay pertama
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
